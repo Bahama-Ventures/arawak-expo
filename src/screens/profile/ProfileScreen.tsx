@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import Constants from "expo-constants";
 import * as ImagePicker from "expo-image-picker";
-import * as Permissions from "expo-permissions";
+//import * as Permissions from "expo-permissions";
 import React, { useContext, useState, useEffect } from "react";
 import {
   View,
@@ -51,25 +51,25 @@ export const ProfileScreen = () => {
   };
 
   const onPressChangeImage = async () => {
-    if (Constants.platform.ios) {
-      const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
-      if (status !== "granted") {
-        Alert.alert(
-          getString("Permissions"),
-          getString("PermissionDenied"),
-          [
-            {
-              text: getString("GoToSettings"),
-              onPress: () => Linking.openURL("app-settings:"),
-            },
-            { text: getString("Cancel") },
-          ],
-          { cancelable: false }
-        );
-
-        return;
-      }
-    }
+    //if (Constants.platform.ios) {
+      //const { status } = await Camer.askAsync(Permissions.CAMERA_ROLL);
+      //if (status !== "granted") {
+        //Alert.alert(
+          //getString("Permissions"),
+          //getString("PermissionDenied"),
+          //[
+            //{
+              //text: getString("GoToSettings"),
+              //onPress: () => Linking.openURL("app-settings:"),
+            //},
+            //{ text: getString("Cancel") },
+          //],
+          //{ cancelable: false }
+        //);
+//
+        //return;
+      //}
+    //}
     try {
       const result: any = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
