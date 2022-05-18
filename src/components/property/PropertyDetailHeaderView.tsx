@@ -34,16 +34,20 @@ export const PropertyDetailHeaderView: React.FC<TProps> = ({
   const isLiked = likedProperties.hasOwnProperty(model.id);
 
   const onClickLike = () => {
+
+    console.log("Liked: ", model.id);
+
     if (!isLoggedIn) {
       navigation.navigate(NavigationNames.RootLoginScreen);
       return;
     }
     PropertyService.likeProperty(model.id, !isLiked)
-      .then((_) => {
+      .then((res) => {
+        console.log(res);
         model.isLiked = !isLiked;
         likeProperty(model, !isLiked);
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => console.log("Like attempt:",err.message));
   };
 
   const images = model.imageNames.split(",").filter((a) => a !== "");

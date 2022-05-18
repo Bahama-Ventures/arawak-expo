@@ -21,10 +21,16 @@ export const LikedPropertiesProvider: React.FC<object> = (props) => {
   const [likedProperties, setLikedProperties] = useState({});
   const authContext = useContext(AuthenticationContext);
 
+
+
   useEffect(() => {
+
+    console.log("Auth Context: ", authContext);
+
     if (authContext.isLoggedIn) {
       PropertyService.getLikedProperties()
         .then((res) => {
+          console.log('Liked Props Data', res.data);
           var properties: { [id: string]: Property } = {};
           (res.data as Property[]).forEach((item) => {
             properties[item.id] = item;
@@ -35,7 +41,7 @@ export const LikedPropertiesProvider: React.FC<object> = (props) => {
           if (err.response && err.response.status === 401) {
             authContext.logout();
           } else {
-            Alert.alert(err.message);
+            console.log("Liked Prop Context Error:",err.message);
           }
         });
     } else {

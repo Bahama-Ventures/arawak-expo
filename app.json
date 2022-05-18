@@ -8,7 +8,7 @@
       "android",
       "web"
     ],
-    "version": "1.0.0",
+    "version": "2.1.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -21,7 +21,7 @@
       "versionCode": 4,
       "config": {
         "googleMaps": {
-          "apiKey": "AIzaSyB5M-wU5Jq87MNivcUupoT7WGM0Ajk085E"
+          "apiKey": "AIzaSyDQq4WImXbpcNl01h2Gn03JTtPJCUMiGY0"
         }
       }
     },
@@ -33,7 +33,10 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.bvi.arawakre"
+      "bundleIdentifier": "com.bvi.arawakre",
+      "config": {
+        "googleMapsApiKey": "AIzaSyDQq4WImXbpcNl01h2Gn03JTtPJCUMiGY0"
+      }
     }
   }
 }

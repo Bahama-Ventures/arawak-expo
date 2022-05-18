@@ -80,6 +80,7 @@ export const RegisterScreen = () => {
             <TextInput
               inputProps={{
                 placeholder: getString("First Name"),
+                placeholderTextColor: "lightgray",
                 value: firstName,
                 onChangeText: setFirstName,
               }}
@@ -88,6 +89,7 @@ export const RegisterScreen = () => {
             <TextInput
               inputProps={{
                 placeholder: getString("Last Name"),
+                placeholderTextColor: "lightgray",
                 value: lastName,
                 onChangeText: setLastName,
               }}
@@ -96,6 +98,7 @@ export const RegisterScreen = () => {
             <TextInput
               inputProps={{
                 placeholder: getString("Email"),
+                placeholderTextColor: "lightgray",
                 value: email,
                 onChangeText: setEmail,
               }}
@@ -104,6 +107,7 @@ export const RegisterScreen = () => {
             <TextInput
               inputProps={{
                 placeholder: getString("Username"),
+                placeholderTextColor: "lightgray",
                 value: username,
                 onChangeText: setUsername,
               }}
@@ -112,6 +116,7 @@ export const RegisterScreen = () => {
             <TextInput
               inputProps={{
                 placeholder: getString("Password"),
+                placeholderTextColor: "lightgray",
                 secureTextEntry: true,
                 value: password,
                 onChangeText: setPassword,
@@ -177,6 +182,7 @@ export const RegisterScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    top:40
   },
   content: {
     flex: 1,

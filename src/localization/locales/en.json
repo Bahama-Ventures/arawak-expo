@@ -57,7 +57,7 @@
   "Last Name": "Last Name",
   "Email": "Email",
   "Back to Login": "Back to Login",
-  "Search Place Holder": "Search...",
+  "Search Place Holder": "Search by Settlement, Island or Keyword...",
   "Cities": "Cities",
   "Categories": "Categories",
   "Type": "Type",
@@ -78,7 +78,7 @@
   "PermissionDenied": "Sorry, we need camera roll permissions to make this work!",
   "GoToSettings": "Go to Settings",
 
-  "UserTermConfirmText": "I accept the user terms.",
+  "UserTermConfirmText": "I accept the Terms of Use.",
   "CONFIRM": "CONFIRM",
 
   "Cancel": "Cancel",

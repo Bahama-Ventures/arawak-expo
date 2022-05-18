@@ -42,7 +42,7 @@ export const SearchScreen = () => {
 
   const [isVisibleFilterModal, setIsVisibleFilterModal] = useState(false);
   const [resultList, setResultList] = useState<Property[]>([]);
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText, searchCity, setSearchCity] = useState("");
   const [searchConstants, setSearchConstants] = useState<SearchConstantsModel>(
     null
   );
@@ -68,8 +68,10 @@ export const SearchScreen = () => {
     });
   };
 
+  var currCity = [];
   const searchProperty = (filterData: SearchPropertyRequestModel) => {
     filterData.searchText = searchText;
+    //filterData.cities = currCity.push(searchText);
     SearchService.searchProperties(filterData)
       .then((res) => setResultList(res.data))
       .catch((err) => Alert.alert(err.message));
@@ -90,7 +92,7 @@ export const SearchScreen = () => {
       filters.push(`Kitchen ${filterData.kitchenRoomCounts[0]}`);
     filterData.parkingCounts[0] > 0 &&
       filters.push(`Parking ${filterData.parkingCounts[0]}`);
-    filterData.cities.forEach((a) => filters.push(a.name));
+    //filterData.cities.forEach((a) => filters.push(a.name));
   }
 
   useEffect(() => {
@@ -132,6 +134,7 @@ export const SearchScreen = () => {
             ref={refSearchInput}
             inputProps={{
               placeholder: getString("Search Place Holder"),
+              placeholderTextColor: "lightgray",
               returnKeyType: "search",
               value: searchText,
               onChangeText: setSearchText,

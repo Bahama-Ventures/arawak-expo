@@ -10,3 +10,11 @@
 ## Documentation
 
 Additional documentation on compontents and required resources to be added.
+
+ ### Lots of fixes add
+ But still TODO
+
+ + Like Properties
+ + Update Demo Copy
+ + Kill Demo elements
+ + Polish theme styles

@@ -46,12 +46,19 @@ export const SearchMapScreen = () => {
   const initialRegion =
     resultList.length > 0
       ? {
-          latitude: resultList[0].latitude,
-          longitude: resultList[0].longitude,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
+          //latitude: resultList[0].latitude,
+          //longitude: resultList[0].longitude,
+          latitude: 25.0514694348147,
+          longitude: -77.41400178593588,
+          latitudeDelta: 5.94,
+          longitudeDelta: 5.95,
         }
-      : null;
+      : {
+          latitude: 25.0514694348147,
+          longitude: -77.41400178593588,
+          latitudeDelta: 6.24,
+          longitudeDelta: 6.25,
+      };
 
   return (
     <>
@@ -127,8 +134,8 @@ export const SearchMapScreen = () => {
             refMap.current.animateToRegion({
               latitude: resultList[index].latitude,
               longitude: resultList[index].longitude,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
+              latitudeDelta: 0.06,
+              longitudeDelta: 0.05,
             })
           }
         />

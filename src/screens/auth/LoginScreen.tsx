@@ -51,6 +51,7 @@ export const LoginScreen = () => {
           <TextInput
             inputProps={{
               placeholder: getString("Username"),
+              placeholderTextColor: "lightgray",
               value: username,
               onChangeText: setUsername,
             }}
@@ -59,6 +60,7 @@ export const LoginScreen = () => {
           <TextInput
             inputProps={{
               placeholder: getString("Password"),
+              placeholderTextColor: "lightgray",
               secureTextEntry: true,
               textContentType: "none",
               autoCorrect: false,
@@ -90,6 +92,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     justifyContent: "center",
+    top:40
   },
   content: {
     flex: 1,
