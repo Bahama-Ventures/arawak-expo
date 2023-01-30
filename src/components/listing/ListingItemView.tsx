@@ -1,8 +1,6 @@
-import {
-  FontAwesome,
-  Entypo,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import Entypo from "@expo/vector-icons/Entypo"; 
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import ViewPager from "@react-native-community/viewpager";
 import { useNavigation } from "@react-navigation/native";
 import numeral from "numeral";

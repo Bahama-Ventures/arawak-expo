@@ -9,7 +9,7 @@ export const configureGlobalTypography = () => {
       allowFontScaling: false,
       style: [
         {
-          fontFamily: "default-regular",
+          fontFamily: "Arial",
           writingDirection: I18nManager.isRTL ? "rtl" : "ltr",
         },
         origin.props.style,

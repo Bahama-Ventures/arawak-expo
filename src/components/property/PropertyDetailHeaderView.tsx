@@ -1,4 +1,5 @@
-import { Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import Entypo from "@expo/vector-icons/Entypo";
 import ViewPager from "@react-native-community/viewpager";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";

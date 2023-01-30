@@ -1,4 +1,4 @@
-import { FontAwesome } from "@expo/vector-icons";
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useNavigation, useRoute } from "@react-navigation/native";
 import numeral from "numeral";
 import React, { useRef } from "react";

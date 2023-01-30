@@ -1,8 +1,6 @@
-import {
-  MaterialCommunityIcons,
-  FontAwesome,
-  Ionicons,
-} from "@expo/vector-icons";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useNavigation, useRoute } from "@react-navigation/native";
 import numeral from "numeral";
 import React, { useState } from "react";

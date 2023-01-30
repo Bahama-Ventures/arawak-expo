@@ -26,7 +26,7 @@ export const Text: React.FC<TProps> = ({ children, style }) => {
           fontFamily:
             flattedStyle && flattedStyle.fontFamily
               ? flattedStyle.fontFamily
-              : "default-regular",
+              : "Arial",
           color:
             flattedStyle && flattedStyle.color
               ? flattedStyle.color

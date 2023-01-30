@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   htmlBaseFontStyle: {
     color: Theme.colors.black,
     fontSize: 15,
-    fontFamily: "default-regular",
+    fontFamily: "Arial",
     writingDirection: I18nManager.isRTL ? "rtl" : "ltr",
     textAlign: "justify",
   },
