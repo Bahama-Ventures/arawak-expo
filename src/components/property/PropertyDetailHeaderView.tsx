@@ -51,7 +51,8 @@ export const PropertyDetailHeaderView: React.FC<TProps> = ({
       .catch((err) => console.log("Like attempt:",err.message));
   };
 
-  const images = model.imageNames.split(",").filter((a) => a !== "");
+  //const images = model.imageNames.split(",").filter((a) => a !== "");
+  const images = model.featuredimage;
 
   return (
     <View>
@@ -60,20 +61,20 @@ export const PropertyDetailHeaderView: React.FC<TProps> = ({
         initialPage={0}
         onPageSelected={(e) => setIndicatorIndex(e.nativeEvent.position)}
       >
-        {images.map((item, index) => (
+        {/* {images.map((item, index) => ( */}
           <TouchableOpacity
             activeOpacity={0.9}
-            key={`pagerItemKey${index}`}
+            //key={`pagerItemKey${index}`}
             onPress={() => onPressPhoto(index, item)}
           >
             <Image
               source={{
-                uri: getImageUrl(item),
+                uri: images,
               }}
               style={styles.flex1}
             />
           </TouchableOpacity>
-        ))}
+       {/* ))} */}
       </ViewPager>
       <LinearGradient
         colors={["transparent", "black"]}
@@ -82,7 +83,7 @@ export const PropertyDetailHeaderView: React.FC<TProps> = ({
       >
         <View style={styles.labelContent}>
           <Text style={styles.labelText}>
-            {model.propertyType.name.toLocaleLowerCase("en") === "rent"
+            {model.listingtype === "Rental"
               ? getString("FOR RENT")
               : getString("FOR SALE")}
           </Text>
@@ -90,9 +91,9 @@ export const PropertyDetailHeaderView: React.FC<TProps> = ({
         <Text style={styles.titleText}>{model.title}</Text>
         <Text style={styles.locationText}>
           <Entypo name="location-pin" size={14} />
-          {` ${model.city.name}  `}
+          {` ${model.island}  `}
           <MaterialCommunityIcons name="floor-plan" size={14} />
-          {` ${model.size}m²`}
+          {/*` ${model.size}m²` */}SqFt
         </Text>
       </LinearGradient>
       <View style={{ position: "absolute", bottom: 16, alignSelf: "center" }}>
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
     paddingBottom: 32,
   },
   labelContent: {
-    backgroundColor: Theme.colors.yellow,
+    backgroundColor: Theme.colors.orange,
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 4,

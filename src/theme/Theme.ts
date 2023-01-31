@@ -9,6 +9,7 @@ export const Theme = {
     green: "#2db074",
     yellow: "#fcc125",
     yellowDark: "#edac00",
+    orange:"#ff8e00",
     windowBackground: "#f9fbfc",
     navbarActiveColor: "#ffac41",
     navbarInactiveColor: "lightgray",

@@ -26,6 +26,7 @@ export const HomeHighlightedItemView: React.FC<TProps> = ({
   onClick,
 }) => {
   const { getString } = useLocalization();
+  //console.log("Home Hightlights");
   return (
     <TouchableOpacity onPress={onClick} activeOpacity={1}>
       <Box style={styles.container}>
@@ -33,12 +34,13 @@ export const HomeHighlightedItemView: React.FC<TProps> = ({
           style={styles.imgBack}
           imageStyle={{ borderRadius: Theme.sizes.boxBorderRadius }}
           source={{
-            uri: getImageUrl(item.imageNames.split(",")[0]),
+            //uri: getImageUrl(item.imageNames.split(",")[0]),
+            uri: item.featuredimage,
           }}
         >
           <View style={styles.labelContent}>
             <Text style={styles.labelText}>
-              {item.propertyType.name.toLocaleLowerCase("en") === "rent"
+              {item.listingtype === "rent"
                 ? getString("FOR RENT")
                 : getString("FOR SALE")}
             </Text>
@@ -50,17 +52,17 @@ export const HomeHighlightedItemView: React.FC<TProps> = ({
             >
               <View style={styles.flex1}>
                 <Text style={styles.titleText} numberOfLines={2}>
-                  {item.title}
+                  {item.propertytagline}
                 </Text>
                 <Text style={styles.locationText}>
                   <Entypo name="location-pin" size={14} />
-                  {` ${item.city.name}  `}
+                  {` ${item.island}  `}
                   <MaterialCommunityIcons name="floor-plan" size={14} />
-                  {` ${item.size}m²`}
+                  {/* ` ${item.size}ft²` */}
                 </Text>
               </View>
               <Text style={styles.moneyText}>
-                {`${item.currency}${numeral(item.price).format("0,0.00")}`}
+                {/* `${item.currency}${numeral(item.price).format("0,0.00")}` */}
               </Text>
             </LinearGradient>
           </View>

@@ -76,7 +76,9 @@ export const PropertyDetailScreen = () => {
   });
 
   const model = route.params["model"] as Property;
-  const images = model.imageNames.split(",").filter((a) => a !== "");
+  //const images = model.imageNames.split(",").filter((a) => a !== "");
+  const images = model.featuredimage;
+  const gallery = model.gallery;
 
   const animation = new Animated.Value(0);
   const opacity = animation.interpolate({
@@ -92,7 +94,7 @@ export const PropertyDetailScreen = () => {
     });
 
   navigation.setOptions({
-    title: model.title,
+    title: model.propertytagline,
     headerTransparent: true,
     headerTintColor: Theme.colors.primaryColorDark,
     headerTitleStyle: { opacity },
@@ -137,9 +139,9 @@ export const PropertyDetailScreen = () => {
         <View style={styles.moneyContainer}>
           <Text style={styles.moneyTitle}>{getString("Price")}</Text>
           <Text style={styles.moneyText}>
-            {`${model.currency} ${numeral(model.price).format("0,0.00")}`}
-            {model.propertyType.name.toLocaleLowerCase("en") === "rent" && (
-              <Text style={styles.monthlyText}> {getString("monthly")}</Text>
+            ${`${numeral(model.price).format("0,0.00")}`}
+            {model.listingtype === "Rental" && (
+              <Text style={styles.monthlyText}> {getString("/monthly")}</Text>
             )}
           </Text>
         </View>
@@ -149,20 +151,16 @@ export const PropertyDetailScreen = () => {
         <View>
           <View style={styles.propertiesContainer}>
             <View style={styles.propertyContent}>
-              <FontAwesome name="bed" size={20} color={Theme.colors.yellow} />
+              <FontAwesome name="bed" size={20} color={Theme.colors.orange} />
               <Text style={styles.propertyTitle}>
-                {getString("bedroomWithCount", {
-                  count: model.bedRoomCount,
-                })}
+                Beds: { model.beds }
               </Text>
             </View>
 
             <View style={styles.propertyContent}>
-              <FontAwesome name="bath" size={20} color={Theme.colors.yellow} />
+              <FontAwesome name="bath" size={20} color={Theme.colors.orange} />
               <Text style={styles.propertyTitle}>
-                {getString("bathroomWithCount", {
-                  count: model.bathRoomCount,
-                })}
+                Baths: { model.baths }
               </Text>
             </View>
             <View style={styles.propertyContent}>
@@ -194,22 +192,23 @@ export const PropertyDetailScreen = () => {
           title={getString("Description")}
           contentStyle={{ marginTop: -4 }}
         >
-          <HtmlView
-            htmlContent={model.description}
-            imagesMaxWidthOffset={WIDTH - 32}
-          />
+          {/*<HtmlView
+            //htmlContent={model.description}
+            //imagesMaxWidthOffset={WIDTH - 32}
+          /> */}
+          <Text>{ model.description }</Text>
         </SectionContent>
 
         <Divider />
 
         <SectionContent title={getString("Photos")}>
           <FlatList
-            data={images}
+            data={gallery}
             renderItem={({ index, item }) => (
               <TouchableOpacity onPress={() => onClickPhoto(index)}>
                 <Box>
                   <Image
-                    source={{ uri: getImageUrl(item) }}
+                    source={{ uri: item }}
                     style={styles.previewImage}
                   />
                 </Box>
@@ -283,9 +282,9 @@ export const PropertyDetailScreen = () => {
         >
           <View style={styles.flex1}>
             <Text style={styles.contactName}>
-              {`${model.user.firstName} ${model.user.lastName}`}
+              {/* `${model.user.firstName} ${model.user.lastName}` */}
             </Text>
-            <Text style={styles.contactAddress}>{model.user.address}</Text>
+            <Text style={styles.contactAddress}>User Address</Text>
           </View>
           <CircleIconButton
             iconColor={Theme.colors.primaryColor}
@@ -303,7 +302,7 @@ export const PropertyDetailScreen = () => {
             onPress={() => Linking.openURL(`mailto:${model.user.email}`)}
           />
         </SectionContent>
-        <PhotoViewerModal
+        {/*<PhotoViewerModal
           imageNames={images}
           selectedImageIndex={photoViewerConfig.selectedPhotoIndex}
           visible={photoViewerConfig.isShowed}
@@ -313,7 +312,7 @@ export const PropertyDetailScreen = () => {
               isShowed: false,
             });
           }}
-        />
+        />*/}
       </ScrollView>
     </>
   );
